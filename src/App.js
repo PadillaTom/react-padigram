@@ -223,47 +223,43 @@ function App() {
         </div>
       </section>
       {/* End Header Section */}
-{user && 
-
-}
-      {/* Posts Component */}
-      <section className='section'>
-        <div className='section-center posts-container'>
-          <div className='main-page-left'>
-            {posts.map(({ id, post }) => (
-              <Post
-                key={id}
-                postId={id}
-                user={user}
-                username={post.username}
-                imageUrl={post.imageUrl}
-                caption={post.caption}
-              ></Post>
-            ))}
-          </div>
-          <div className='main-page-right'>
-            {/* Instagram Embed */}
-            <InstagramEmbed
-              url='https://instagr.am/p/Zw9o4/'
-              maxWidth={320}
-              hideCaption={false}
-              containerTagName='div'
-              protocol=''
-              injectScript
-              onLoading={() => {}}
-              onSuccess={() => {}}
-              onAfterRender={() => {}}
-              onFailure={() => {}}
-            />
-            {/* End Instagram Embed */}
-          </div>
-        </div>
-      </section>
-      {/* End Post Component */}
 
       {/* Upload Section */}
       {user?.displayName ? (
-        <ImageUpload username={user.displayName}></ImageUpload>
+        <React.Fragment>
+          <section className='section'>
+            <div className='section-center posts-container'>
+              <div className='main-page-left'>
+                {posts.map(({ id, post }) => (
+                  <Post
+                    key={id}
+                    postId={id}
+                    user={user}
+                    username={post.username}
+                    imageUrl={post.imageUrl}
+                    caption={post.caption}
+                  ></Post>
+                ))}
+              </div>
+              <div className='main-page-right'>
+                <InstagramEmbed
+                  url='https://instagr.am/p/Zw9o4/'
+                  maxWidth={320}
+                  hideCaption={false}
+                  containerTagName='div'
+                  protocol=''
+                  injectScript
+                  onLoading={() => {}}
+                  onSuccess={() => {}}
+                  onAfterRender={() => {}}
+                  onFailure={() => {}}
+                />
+              </div>
+            </div>
+          </section>
+
+          <ImageUpload username={user.displayName}></ImageUpload>
+        </React.Fragment>
       ) : (
         <h3>Please Login to make a Post</h3>
       )}
