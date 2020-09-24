@@ -114,119 +114,118 @@ function App() {
     <>
       {/* Header Section */}
       <section className='section'>
-        <div className='header-container'>
-          {/* :::::::: Modals :::::::::: */}
-          <div className='modal-container'>
-            <Modal
-              open={open}
-              onClose={() => {
-                setOpen(false);
-              }}
-            >
-              <div style={modalStyle} className={classes.paper}>
-                <form className='form-signup'>
-                  <center>
-                    <div className='padigram-logo'>
-                      <h2>
-                        casadel
-                        <span>C</span>
-                      </h2>
-                    </div>
-                  </center>
+        {/* :::::::: Modals :::::::::: */}
+        <div className='modal-container'>
+          <Modal
+            open={open}
+            onClose={() => {
+              setOpen(false);
+            }}
+          >
+            <div style={modalStyle} className={classes.paper}>
+              <form className='form-signup'>
+                <center>
+                  <div className='padigram-logo'>
+                    <h2>
+                      casadel
+                      <span>C</span>
+                    </h2>
+                  </div>
+                </center>
+                <Input
+                  placeholder='username'
+                  type='text'
+                  value={username}
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                ></Input>
+                <Input
+                  placeholder='email'
+                  type='text'
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                ></Input>
+                <Input
+                  placeholder='password'
+                  type='password'
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                ></Input>
+                <Button type='submit' onClick={signUp}>
+                  Sign up
+                </Button>
+              </form>
+            </div>
+          </Modal>
+          <Modal
+            open={openSignin}
+            onClose={() => {
+              setOpenSignin(false);
+            }}
+          >
+            <div style={modalStyle} className={classes.paper}>
+              <form className='form-signup'>
+                <center>
+                  <div className='padigram-logo'>
+                    <h2>
+                      casadel
+                      <span>C</span>
+                    </h2>
+                  </div>
+                </center>
+                <Input
+                  placeholder='email'
+                  type='text'
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                ></Input>
+                <Input
+                  placeholder='password'
+                  type='password'
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                ></Input>
+                <Button type='submit' onClick={signIn}>
+                  Login
+                </Button>
+              </form>
+            </div>
+          </Modal>
+        </div>
+        {/* :::::::::: End Modals ::::::::::: */}
 
-                  <Input
-                    placeholder='username'
-                    type='text'
-                    value={username}
-                    onChange={(e) => {
-                      setUsername(e.target.value);
-                    }}
-                  ></Input>
-                  <Input
-                    placeholder='email'
-                    type='text'
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                  ></Input>
-                  <Input
-                    placeholder='password'
-                    type='password'
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                  ></Input>
-                  <Button type='submit' onClick={signUp}>
-                    Sign up
-                  </Button>
-                </form>
-              </div>
-            </Modal>
-            <Modal
-              open={openSignin}
-              onClose={() => {
-                setOpenSignin(false);
-              }}
-            >
-              <div style={modalStyle} className={classes.paper}>
-                <form className='form-signup'>
-                  <center>
-                    <div className='padigram-logo'>
-                      <h2>
-                        casadel
-                        <span>C</span>
-                      </h2>
-                    </div>
-                  </center>
-
-                  <Input
-                    placeholder='email'
-                    type='text'
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                  ></Input>
-                  <Input
-                    placeholder='password'
-                    type='password'
-                    value={password}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                  ></Input>
-                  <Button type='submit' onClick={signIn}>
-                    Login
-                  </Button>
-                </form>
-              </div>
-            </Modal>
+        <div className='app_header'>
+          <div className='padigram-logo'>
+            <h2>
+              casadel
+              <span>C</span>
+            </h2>
           </div>
-          {/* :::::::::: End Modals ::::::::::: */}
-          <div className='app_header'>
-            <div className='padigram-logo'>
-              <h2>
-                casadel
-                <span>C</span>
-              </h2>
-            </div>
-            <div className='log-buttons-container'>
-              {user ? (
-                <Button onClick={() => auth.signOut()}>Logout</Button>
-              ) : (
-                <div className='login-container'>
-                  <Button onClick={() => setOpenSignin(true)}>Login</Button>
-                  <Button onClick={() => setOpen(true)}>Sign up</Button>
-                </div>
-              )}
-            </div>
+          <div className='log-buttons-container'>
+            {user ? (
+              <Button onClick={() => auth.signOut()}>Logout</Button>
+            ) : (
+              <div className='login-container'>
+                <Button onClick={() => setOpenSignin(true)}>Login</Button>
+                <Button onClick={() => setOpen(true)}>Sign up</Button>
+              </div>
+            )}
           </div>
         </div>
       </section>
       {/* End Header Section */}
+{user && 
 
+}
       {/* Posts Component */}
       <section className='section'>
         <div className='section-center posts-container'>

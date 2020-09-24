@@ -42,8 +42,8 @@ html {
   border-bottom: var(--MainBorderGrey);
   display: flex;
   justify-content: space-between;
-  width: 100%;
 }
+
 /* End App Header */
 
 /* ::::::::::::::::::: Post::::::::::::::::::::: */
@@ -102,7 +102,7 @@ html {
 }
 /* End Form Signup / Login  */
 
-/* ::::::::::::::::::: Image Upload::::::::::::::::::::: */
+/* ::::::::::::::::::: Image Upload ::::::::::::::::::::: */
 .upload-section {
   width: 100%;
   background-color: red;

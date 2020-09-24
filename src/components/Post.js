@@ -56,35 +56,33 @@ function Post({ postId, username, imageUrl, caption, user }) {
           <span>{username}</span>
           <h4>{caption}</h4>
         </div>
-        {/* Comments */}
         <div className='comments-container'>
-          {/* Show Comments */}
           <div className='show-comments-container'>
-            {comments.map((item) => (
-              <p>
+            {comments.map((item, index) => (
+              <p key={index}>
                 <b>{item.username}</b> {item.text}
               </p>
             ))}
           </div>
-          {/* End Show Comments */}
-          {/* Comment Input */}
-          <form className='comments-form-container'>
-            <input
-              type='text'
-              className='comment-input'
-              placeholder='Comments...'
-              value={comment}
-              onChange={(e) => setComment(e.target.value)}
-            />
-            <button
-              disabled={!comment}
-              className='comment-button'
-              type='submit'
-              onClick={postComment}
-            >
-              Post
-            </button>
-          </form>
+          {user && (
+            <form className='comments-form-container'>
+              <input
+                type='text'
+                className='comment-input'
+                placeholder='Comments...'
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+              />
+              <button
+                disabled={!comment}
+                className='comment-button'
+                type='submit'
+                onClick={postComment}
+              >
+                Post
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </React.Fragment>
