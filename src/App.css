@@ -140,6 +140,9 @@ html {
   padding: 1rem;
   color: var(--MainBtnColor);
 }
+.show-comments-container {
+  padding: 0.8rem;
+}
 
 /* End Comments */
 /* ::::::::::::::::::: Globals ::::::::::::::::::::: */

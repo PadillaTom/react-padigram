@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { db } from '../firebase';
+import firebase from 'firebase';
 
 function Post({ postId, username, imageUrl, caption, user }) {
   // State for Comments:
-  const [comments, setComments] = useState('');
+  const [comments, setComments] = useState([]);
   const [comment, setComment] = useState('');
   // UseEffect for Commenting:
   useEffect(() => {
@@ -16,10 +17,10 @@ function Post({ postId, username, imageUrl, caption, user }) {
         .collection('posts')
         .doc(postId)
         .collection('comments')
+        .orderBy('timestamp', 'desc')
         .onSnapshot((snapshot) => {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
-      console.log(postId);
     }
     // Limpiamos Todo una vez Setteado
     return () => {
@@ -30,9 +31,11 @@ function Post({ postId, username, imageUrl, caption, user }) {
 
   // Post Btn Functionality:
   const postComment = (e) => {
+    e.preventDefault();
     db.collection('posts').doc(postId).collection('comments').add({
       username: user.displayName,
       text: comment,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
     setComment('');
   };
@@ -55,15 +58,15 @@ function Post({ postId, username, imageUrl, caption, user }) {
         </div>
         {/* Comments */}
         <div className='comments-container'>
-          {/* SingleComment */}
-          {/* <div className='single-comment-container'>
-            {comments.map((comment) => (
+          {/* Show Comments */}
+          <div className='show-comments-container'>
+            {comments.map((item) => (
               <p>
-                <strong>{comment.username}</strong> {comment.text}
+                <b>{item.username}</b> {item.text}
               </p>
             ))}
-          </div> */}
-          {/* End Single Comment */}
+          </div>
+          {/* End Show Comments */}
           {/* Comment Input */}
           <form className='comments-form-container'>
             <input

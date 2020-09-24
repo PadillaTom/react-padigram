@@ -52,6 +52,7 @@ function ImageUpload({ username }) {
               imageUrl: url,
               username: username,
             });
+
             // RESET Everything
             setProgress(0);
             setCaption('');
