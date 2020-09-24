@@ -17,7 +17,7 @@ function ImageUpload({ username }) {
     }
   };
   // Upload Function:
-  const handleUpload = (e) => {
+  const handleUpload = () => {
     // Upload will Create the Images folder, and store the Image[0] into it.
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     // Que hace UPLOAD TAKS? -->
