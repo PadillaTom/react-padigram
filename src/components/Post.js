@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
+import { db } from '../firebase';
 
-function Post({ username, imageUrl, caption }) {
+function Post({ postId, username, imageUrl, caption }) {
+  // State for Comments:
+  const [comments, setComments] = useState('');
+  const [comment, setComment] = useState('');
+  // UseEffect for Commenting:
+  useEffect(() => {
+    // Importante para Cleanup
+    let unsuscribe;
+    // Si hay POST: Meterme a la DB y setComment la Data para dicho POST
+    if (postId) {
+      unsuscribe = db
+        .collection('posts')
+        .doc(postId)
+        .collection('comments')
+        .onSnapshot((snapshot) => {
+          setComments(snapshot.docs.map((doc) => doc.data()));
+        });
+    }
+    // Limpiamos Todo una vez Setteado
+    return () => {
+      unsuscribe();
+    };
+    // Only Reload when PostID has a Change. **** Everytime we use Variable, pass it as dependency
+  }, [postId]);
+
+  // Post Btn Functionality:
+  const postComment = (e) => {
+    e.preventDefault();
+  };
   //Return:
   return (
     <React.Fragment>
@@ -18,6 +47,26 @@ function Post({ username, imageUrl, caption }) {
         <div className='post-text'>
           <span>{username}</span>
           <h4>{caption}</h4>
+        </div>
+        {/* Comments */}
+        <div className='comments-container'>
+          <form className='comments-form-container'>
+            <input
+              type='text'
+              className='comment-input'
+              placeholder='Comments...'
+              value={comment}
+              onChange={(e) => setComments(e.target.value)}
+            />
+            <button
+              disabled={!comment}
+              className='comment-button'
+              type='submit'
+              onClick={postComment}
+            >
+              Post
+            </button>
+          </form>
         </div>
       </div>
     </React.Fragment>
