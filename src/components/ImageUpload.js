@@ -45,7 +45,7 @@ function ImageUpload({ username }) {
           // Tomaremos una Timestamp (orden de subida), Caption, ImageUrl
           // Para ser Uploaded!!!!!!
           .then((url) => {
-            db.collection('posts').orderBy('timestamp', 'desc').add({
+            db.collection('posts').add({
               // La display en orden de subida.
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               caption: caption,
