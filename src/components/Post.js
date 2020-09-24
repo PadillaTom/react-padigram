@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { db } from '../firebase';
 
-function Post({ postId, username, imageUrl, caption }) {
+function Post({ postId, username, imageUrl, caption, user }) {
   // State for Comments:
   const [comments, setComments] = useState('');
   const [comment, setComment] = useState('');
@@ -19,6 +19,7 @@ function Post({ postId, username, imageUrl, caption }) {
         .onSnapshot((snapshot) => {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
+      console.log(postId);
     }
     // Limpiamos Todo una vez Setteado
     return () => {
@@ -29,7 +30,11 @@ function Post({ postId, username, imageUrl, caption }) {
 
   // Post Btn Functionality:
   const postComment = (e) => {
-    e.preventDefault();
+    db.collection('posts').doc(postId).collection('comments').add({
+      username: user.displayName,
+      text: comment,
+    });
+    setComment('');
   };
   //Return:
   return (
@@ -50,13 +55,23 @@ function Post({ postId, username, imageUrl, caption }) {
         </div>
         {/* Comments */}
         <div className='comments-container'>
+          {/* SingleComment */}
+          {/* <div className='single-comment-container'>
+            {comments.map((comment) => (
+              <p>
+                <strong>{comment.username}</strong> {comment.text}
+              </p>
+            ))}
+          </div> */}
+          {/* End Single Comment */}
+          {/* Comment Input */}
           <form className='comments-form-container'>
             <input
               type='text'
               className='comment-input'
               placeholder='Comments...'
               value={comment}
-              onChange={(e) => setComments(e.target.value)}
+              onChange={(e) => setComment(e.target.value)}
             />
             <button
               disabled={!comment}

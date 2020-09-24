@@ -63,21 +63,23 @@ function ImageUpload({ username }) {
   //Main:
   return (
     <>
-      <div className='image-upload-container'>
-        <progress
-          className='image-upload-progress'
-          value={progress}
-          max='100'
-        ></progress>
-        <input
-          type='text'
-          placeholder='Enter a Caption...'
-          onChange={(e) => setCaption(e.target.value)}
-          value={caption}
-        />
-        <input type='file' onChange={handleChange} />
-        <Button onClick={handleUpload}>Post!</Button>
-      </div>
+      <section className='upload-section'>
+        <div className='image-upload-container'>
+          <progress
+            className='image-upload-progress'
+            value={progress}
+            max='100'
+          ></progress>
+          <input
+            type='text'
+            placeholder='Enter a Caption...'
+            onChange={(e) => setCaption(e.target.value)}
+            value={caption}
+          />
+          <input type='file' onChange={handleChange} />
+          <Button onClick={handleUpload}>Post!</Button>
+        </div>
+      </section>
     </>
   );
 }

@@ -15,7 +15,7 @@ html {
   margin: 0 auto;
 }
 .section-center {
-  max-width: 95vw;
+  max-width: 90vw;
   margin: 0 auto;
 }
 
@@ -25,6 +25,7 @@ html {
   --MainBgColor: #fafafa;
   --MainBorderGrey: 1px solid lightgray;
   --MainTransition: 0.3s ease all;
+  --MainBtnColor: #6082a3;
 }
 /* End Variables */
 /* ::::::::::::::::::: App Header ::::::::::::::::::::: */
@@ -41,13 +42,12 @@ html {
   border-bottom: var(--MainBorderGrey);
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
-
 /* End App Header */
 
 /* ::::::::::::::::::: Post::::::::::::::::::::: */
 .posts-container {
-  margin: 0 auto;
   display: flex;
   justify-content: center;
   margin-bottom: 1.5rem;
@@ -60,7 +60,6 @@ html {
   margin: 0 auto;
   margin-bottom: 1.5rem;
 }
-
 .main-page-right {
   margin-left: 1rem;
 }
@@ -104,10 +103,14 @@ html {
 /* End Form Signup / Login  */
 
 /* ::::::::::::::::::: Image Upload::::::::::::::::::::: */
+.upload-section {
+  width: 100%;
+  background-color: red;
+}
 .image-upload-container {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 95%;
   margin: 0.7rem auto;
 }
 .image-upload-progress {
@@ -115,13 +118,27 @@ html {
   margin: 0 auto;
 }
 /* End Image Upload */
+
 /* ::::::::::::::::::: Comments ::::::::::::::::::::: */
 .comments-container {
   margin-top: 0.5rem;
 }
 .comments-form-container {
   display: flex;
-  justify-content: space-between;
+}
+.comment-input {
+  flex: 1;
+  border: none;
+  padding: 0.7rem;
+  border-top: var(--MainBorderGrey);
+}
+.comment-button {
+  flex: 0;
+  border: none;
+  border-top: var(--MainBorderGrey);
+  background: transparent;
+  padding: 1rem;
+  color: var(--MainBtnColor);
 }
 
 /* End Comments */

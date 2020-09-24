@@ -229,12 +229,13 @@ function App() {
 
       {/* Posts Component */}
       <section className='section'>
-        <div className='posts-container'>
+        <div className='section-center posts-container'>
           <div className='main-page-left'>
             {posts.map(({ id, post }) => (
               <Post
                 key={id}
                 postId={id}
+                user={user}
                 username={post.username}
                 imageUrl={post.imageUrl}
                 caption={post.caption}
@@ -261,7 +262,7 @@ function App() {
       </section>
       {/* End Post Component */}
 
-      {/* Upload Component */}
+      {/* Upload Section */}
       {user?.displayName ? (
         <ImageUpload username={user.displayName}></ImageUpload>
       ) : (
