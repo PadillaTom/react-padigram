@@ -73,13 +73,17 @@ function App() {
   // --> Retrieve from DB
   useEffect(() => {
     // --> DB:
-    db.collection('posts').onSnapshot((snapshot) => {
-      // Will Run on every Upload:
-      // DOCS --> Propiedad de Firebase para ingresar a la DATA de "posts"
-      // Creamos un objeto destructurando la data necesaria (data: all + id)
-      //
-      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() })));
-    });
+    db.collection('posts')
+      .orderBy('timestamp', 'desc')
+      .onSnapshot((snapshot) => {
+        // Will Run on every Upload:
+        // DOCS --> Propiedad de Firebase para ingresar a la DATA de "posts"
+        // Creamos un objeto destructurando la data necesaria (data: all + id)
+        //
+        setPosts(
+          snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() }))
+        );
+      });
   });
   // --> Authentication
   useEffect(() => {
