@@ -5,12 +5,11 @@ function Post({ username, imageUrl, caption }) {
   //Return:
   return (
     <React.Fragment>
-      <div className='post-container'>
+      <div className='single-post-container'>
         <div className='post-header'>
-          {' '}
           <Avatar
             className='post-avatar'
-            alt='Tom Padi'
+            alt={username}
             src='/static/images/avatar/1.jpg'
           ></Avatar>
           <h3>{username}</h3>

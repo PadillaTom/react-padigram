@@ -24,6 +24,7 @@ html {
 :root {
   --MainBgColor: #fafafa;
   --MainBorderGrey: 1px solid lightgray;
+  --MainTransition: 0.3s ease all;
 }
 /* End Variables */
 /* ::::::::::::::::::: App Header ::::::::::::::::::::: */
@@ -38,10 +39,17 @@ html {
   background: white;
   padding: 1rem;
   border-bottom: var(--MainBorderGrey);
+  display: flex;
+  justify-content: space-between;
 }
+
 /* End App Header */
+
 /* ::::::::::::::::::: Post::::::::::::::::::::: */
-.post-container {
+.posts-container {
+  margin: 0 auto;
+}
+.single-post-container {
   max-width: 40rem;
   background: white;
   border: var(--MainBorderGrey);
@@ -73,10 +81,33 @@ html {
   margin-right: 1rem;
 }
 /* End Post */
-/* ::::::::::::::::::: Globals ::::::::::::::::::::: */
-/* End Globals */
-/* ::::::::::::::::::: Globals ::::::::::::::::::::: */
-/* End Globals */
+
+/* ::::::::::::::::::: Form Signup / Login  ::::::::::::::::::::: */
+.form-signup {
+  display: flex;
+  flex-direction: column;
+}
+.form-signup .padigram-logo {
+  margin-bottom: 1rem;
+}
+
+.form-signup button {
+  margin-top: 1.3rem;
+}
+/* End Form Signup / Login  */
+
+/* ::::::::::::::::::: Image Upload::::::::::::::::::::: */
+.image-upload-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0.7rem auto;
+}
+.image-upload-progress {
+  width: 100%;
+  margin: 0 auto;
+}
+/* End Image Upload */
 /* ::::::::::::::::::: Globals ::::::::::::::::::::: */
 /* End Globals */
 /* ::::::::::::::::::: Globals ::::::::::::::::::::: */
