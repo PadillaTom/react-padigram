@@ -81,7 +81,7 @@ function ImageUpload({ username }) {
                 value={caption}
               />
             </div>
-            <FileSelector handleChange={() => handleChange}></FileSelector>
+            <FileSelector handleChange={handleChange}></FileSelector>
           </div>
           <button className='post-button' onClick={handleUpload}>
             Post

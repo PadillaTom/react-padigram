@@ -9,8 +9,9 @@ function FileSelector({ handleChange }) {
   return (
     <React.Fragment>
       <div className='upload-image-btn' onClick={handleFileUpload}>
-        <i className='fas fa-camera-retro'></i>
+        <i class='fas fa-camera-retro'></i>
       </div>
+
       <input
         ref={hiddenFileInput}
         type='file'
