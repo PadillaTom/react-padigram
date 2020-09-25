@@ -2,14 +2,14 @@ import firebase from 'firebase';
 const firebaseApp = firebase.initializeApp({
   // Pegar el CONST FirebaseConfig dado por Firebase here
   // -->
-  apiKey: 'AIzaSyAiixgLeuIM0984JjhC7X1PKyAg5bhb4bk',
-  authDomain: 'instagram-clone-project-80350.firebaseapp.com',
-  databaseURL: 'https://instagram-clone-project-80350.firebaseio.com',
-  projectId: 'instagram-clone-project-80350',
-  storageBucket: 'instagram-clone-project-80350.appspot.com',
-  messagingSenderId: '593452939677',
-  appId: '1:593452939677:web:d06cea0bdd7d857409d774',
-  measurementId: 'G-8CT6N76GZT',
+  apiKey: 'AIzaSyD-rH0jKXmSVuPnr8mCZxJ1JnZZXXcLQ8w',
+  authDomain: 'casadelc-react.firebaseapp.com',
+  databaseURL: 'https://casadelc-react.firebaseio.com',
+  projectId: 'casadelc-react',
+  storageBucket: 'casadelc-react.appspot.com',
+  messagingSenderId: '261948214939',
+  appId: '1:261948214939:web:40e2a8ba8e9067b849803e',
+  measurementId: 'G-C1XGSN8MG9',
 });
 
 const db = firebaseApp.firestore();
