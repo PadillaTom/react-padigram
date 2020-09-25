@@ -1,5 +1,6 @@
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 /* ::::::::::::::::::: Globals ::::::::::::::::::::: */
 * {
   margin: 0;
@@ -30,18 +31,25 @@ html {
 /* End Variables */
 /* ::::::::::::::::::: App Header ::::::::::::::::::::: */
 .padigram-logo {
-  font-style: italic;
+  font-family: 'Pacifico', cursive;
   color: gray;
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  align-self: center;
 }
 .padigram-logo span {
   color: green;
 }
 .app_header {
   background: white;
-  padding: 1rem;
   border-bottom: var(--MainBorderGrey);
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
+  padding: 0.3rem;
+}
+.log-buttons-container {
+  align-self: center;
 }
 
 /* End App Header */
@@ -61,6 +69,7 @@ html {
   margin-bottom: 1.5rem;
 }
 .main-page-right {
+  display: none;
   margin-left: 1rem;
 }
 .post-img {

@@ -11,6 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Input } from '@material-ui/core';
 // Instaram Embed:
 import InstagramEmbed from 'react-instagram-embed';
+import WelcomingPage from './components/WelcomingPage';
 
 // Main:
 function App() {
