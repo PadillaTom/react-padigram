@@ -59,9 +59,10 @@ function Post({ postId, username, imageUrl, caption, user }) {
         <div className='comments-container'>
           <div className='show-comments-container'>
             {comments.map((item, index) => (
-              <p key={index}>
-                <b>{item.username}</b> {item.text}
-              </p>
+              <div key={index} className='comment-user-text-container'>
+                <b className='comment-username'>{item.username}</b>{' '}
+                <div className='comment-text-container'>{item.text}</div>
+              </div>
             ))}
           </div>
           {user && (

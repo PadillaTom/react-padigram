@@ -3,15 +3,13 @@ import './App.css';
 import Post from './components/Post';
 import { db, auth } from './firebase';
 import ImageUpload from './components/ImageUpload';
+import SingleMenu from './components/SingleMenuAvatar';
 // For Modal
 import { Button } from '@material-ui/core';
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 // Input Login:
 import { Input } from '@material-ui/core';
-// Instaram Embed:
-import InstagramEmbed from 'react-instagram-embed';
-import WelcomingPage from './components/WelcomingPage';
 
 // Main:
 function App() {
@@ -217,11 +215,15 @@ function App() {
           </div>
           <div className='log-buttons-container'>
             {user ? (
-              <Button onClick={() => auth.signOut()}>Logout</Button>
+              <SingleMenu></SingleMenu>
             ) : (
               <div className='login-container'>
-                <Button onClick={() => setOpenSignin(true)}>Login</Button>
-                <Button onClick={() => setOpen(true)}>Sign up</Button>
+                <Button size='large' onClick={() => setOpenSignin(true)}>
+                  Login
+                </Button>
+                <Button size='large' onClick={() => setOpen(true)}>
+                  Sign up
+                </Button>
               </div>
             )}
           </div>
@@ -233,7 +235,7 @@ function App() {
       {user?.displayName ? (
         <React.Fragment>
           <section className='section'>
-            <div className='section-center posts-container'>
+            <div className='posts-container'>
               <div className='main-page-left'>
                 {posts.map(({ id, post }) => (
                   <Post
@@ -246,23 +248,9 @@ function App() {
                   ></Post>
                 ))}
               </div>
-              <div className='main-page-right'>
-                <InstagramEmbed
-                  url='https://instagr.am/p/Zw9o4/'
-                  maxWidth={320}
-                  hideCaption={false}
-                  containerTagName='div'
-                  protocol=''
-                  injectScript
-                  onLoading={() => {}}
-                  onSuccess={() => {}}
-                  onAfterRender={() => {}}
-                  onFailure={() => {}}
-                />
-              </div>
             </div>
           </section>
-
+          {/* Upload Section */}
           <ImageUpload username={user.displayName}></ImageUpload>
         </React.Fragment>
       ) : (

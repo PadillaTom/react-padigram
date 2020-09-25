@@ -14,6 +14,7 @@ html {
 .section {
   max-width: 100vw;
   margin: 0 auto;
+  margin-top: 5rem;
 }
 .section-center {
   max-width: 90vw;
@@ -27,6 +28,7 @@ html {
   --MainBorderGrey: 1px solid lightgray;
   --MainTransition: 0.3s ease all;
   --MainBtnColor: #6082a3;
+  --CrackColor: green;
 }
 /* End Variables */
 /* ::::::::::::::::::: App Header ::::::::::::::::::::: */
@@ -36,9 +38,10 @@ html {
   letter-spacing: 3px;
   font-size: 1.2rem;
   align-self: center;
+  cursor: pointer;
 }
 .padigram-logo span {
-  color: green;
+  color: var(--CrackColor);
 }
 .app_header {
   background: white;
@@ -47,30 +50,38 @@ html {
   justify-content: space-between;
   align-items: baseline;
   padding: 0.3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
 }
 .log-buttons-container {
   align-self: center;
+}
+/* Header Avatar User */
+#simple-menu {
+  margin-top: 2.3rem;
+}
+#header-avatar {
+  background: var(--CrackColor);
+  cursor: pointer;
 }
 
 /* End App Header */
 
 /* ::::::::::::::::::: Post::::::::::::::::::::: */
 .posts-container {
-  display: flex;
-  justify-content: center;
   margin-bottom: 1.5rem;
   margin-top: 1.5rem;
+  width: 100%;
 }
 .single-post-container {
-  max-width: 40rem;
   background: white;
-  border: var(--MainBorderGrey);
+  border-top: var(--MainBorderGrey);
+  border-bottom: var(--MainBorderGrey);
   margin: 0 auto;
   margin-bottom: 1.5rem;
-}
-.main-page-right {
-  display: none;
-  margin-left: 1rem;
 }
 .post-img {
   width: 100%;
@@ -79,13 +90,22 @@ html {
   border-bottom: var(--MainBorderGrey);
 }
 .post-text {
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  display: flex;
 }
 .post-text h4 {
   font-weight: 400;
+  font-size: 0.8rem;
+  flex: 1;
+  max-width: 70%;
+  margin-left: 0.4rem;
 }
 .post-text span {
   font-weight: 600;
+  font-size: 0.8rem;
+  flex: 0;
+  margin-right: 0.5rem;
+  white-space: nowrap;
 }
 .post-header {
   display: flex;
@@ -96,7 +116,27 @@ html {
   margin-right: 1rem;
 }
 /* End Post */
-
+@media screen and (min-width: 650px) {
+  .posts-container {
+    max-width: 70vw;
+    margin: 0 auto;
+  }
+  .single-post-container {
+    border: var(--MainBorderGrey);
+  }
+}
+@media screen and (min-width: 850px) {
+  .posts-container {
+    max-width: 80vw;
+    margin: 0 auto;
+  }
+  .post-img {
+    width: 100%;
+  }
+  .single-post-container {
+    width: 50vw;
+  }
+}
 /* ::::::::::::::::::: Form Signup / Login  ::::::::::::::::::::: */
 .form-signup {
   display: flex;
@@ -114,24 +154,81 @@ html {
 /* ::::::::::::::::::: Image Upload ::::::::::::::::::::: */
 .upload-section {
   width: 100%;
-  background-color: red;
+  margin-top: 2.5rem;
+  background-color: rgba(0, 128, 0, 0.412);
 }
 .image-upload-container {
   display: flex;
   flex-direction: column;
   width: 95%;
-  margin: 0.7rem auto;
+  margin: 0 auto;
+  padding: 0.5rem;
+  border-top: var(--MainBorderGrey);
 }
 .image-upload-progress {
-  width: 100%;
+  width: 60%;
   margin: 0 auto;
+  margin-bottom: 0.2rem;
+}
+.upload-flex-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+.caption-flex-container {
+  flex: 1;
+  margin-right: 0.5rem;
+}
+.upload-caption {
+  background-color: var(--MainBgColor);
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+.upload-caption::placeholder {
+  color: rgba(128, 128, 128, 0.816);
+  text-align: center;
+  letter-spacing: 0.8px;
+}
+.upload-image-btn {
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+  flex: 0;
+  margin-left: 0.5rem;
+}
+.upload-image-btn:hover {
+  color: var(--CrackColor);
+}
+.post-button {
+  margin: 0 auto;
+  padding: 0.5rem;
+  background: rgba(0, 255, 13, 0.515);
+  border: none;
+  border-radius: 1rem;
+  width: 50%;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: white;
+  box-shadow: 0.1px 0.2px 5px rgba(0, 0, 0, 0.46);
+}
+progress {
+  color: var(--CrackColor);
+}
+@media screen and (min-width: 850px) {
+  .image-upload-container {
+    width: 60vw;
+  }
 }
 /* End Image Upload */
 
 /* ::::::::::::::::::: Comments ::::::::::::::::::::: */
-.comments-container {
-  margin-top: 0.5rem;
-}
+
 .comments-form-container {
   display: flex;
 }
@@ -152,7 +249,21 @@ html {
 .show-comments-container {
   padding: 0.8rem;
 }
-
+.comment-user-text-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.2rem;
+}
+.comment-username {
+  font-size: 0.8rem;
+  margin-right: 0.4rem;
+  flex: 0;
+  white-space: nowrap;
+}
+.comment-text-container {
+  font-size: 0.8rem;
+  flex: 1;
+}
 /* End Comments */
 /* ::::::::::::::::::: Globals ::::::::::::::::::::: */
 /* End Globals */

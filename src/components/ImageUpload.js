@@ -1,7 +1,7 @@
-import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { db, storage } from '../firebase';
 import firebase from 'firebase';
+import FileSelector from '../components/FileSelector';
 
 function ImageUpload({ username }) {
   // State:
@@ -71,14 +71,21 @@ function ImageUpload({ username }) {
             value={progress}
             max='100'
           ></progress>
-          <input
-            type='text'
-            placeholder='Enter a Caption...'
-            onChange={(e) => setCaption(e.target.value)}
-            value={caption}
-          />
-          <input type='file' onChange={handleChange} />
-          <Button onClick={handleUpload}>Post!</Button>
+          <div className='upload-flex-container'>
+            <div className='caption-flex-container'>
+              <input
+                className='upload-caption'
+                type='text'
+                placeholder='Enter a Caption...'
+                onChange={(e) => setCaption(e.target.value)}
+                value={caption}
+              />
+            </div>
+            <FileSelector handleChange={() => handleChange}></FileSelector>
+          </div>
+          <button className='post-button' onClick={handleUpload}>
+            Post
+          </button>
         </div>
       </section>
     </>
