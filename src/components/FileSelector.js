@@ -9,7 +9,7 @@ function FileSelector({ handleChange }) {
   return (
     <React.Fragment>
       <div className='upload-image-btn' onClick={handleFileUpload}>
-        <i class='fas fa-camera-retro'></i>
+        <i className='fas fa-camera-retro'></i>
       </div>
 
       <input
